@@ -33,41 +33,11 @@
 
 // div.innerHTML : {a.innerHTML : a.href}
 var sites = {
-			"Chan": {
-				"4/wsg/"			: "https://boards.4chan.org/wsg/",
-				"4/b/"				: "https://boards.4chan.org/b/",
-				"4/sci/"			: "https://boards.4chan.org/sci/",
-				"8/b/"				: "https://8ch.net/b/index.html"
+			"test1": {
+				"link1"			: "https://www.google.com"
 			},
-			"Social": {
-				"GitLab"			: "https://gitlab.com/Capuno",
-				"Racó Català"		: "https://www.racocatala.cat/forums",
-				"YouTube"			: "https://www.youtube.com/",
-				"Twitter"			: "https://twitter.com/"
-			},
-			"E-Mail": {
-				"GMail"				: "https://mail.google.com/mail/u/0/",
-				"Hotmail"			: "https://outlook.live.com/owa/",
-				"Zoho Mail"			: "https://mail.zoho.eu/zm/#mail/folder/inbox"
-			},
-			"Games": { // To find the game ID check the url in the store page or the community page
-				"CS:GO"				: "steam://run/730",
-				"Besiege"			: "steam://run/346010",
-				"Rust"				: "steam://run/252490",
-				"Insurgency"		: "steam://run/222880",
-				"West of Loathing"	: "steam://run/597220",
-				"POSTAL 2"			: "steam://run/223470"
-			},
-			"News": {
-				"Financial Times"	: "https://www.ft.com/",
-				"Vilaweb"			: "https://www.vilaweb.cat/",
-				"El Punt Avui"		: "http://www.elpuntavui.cat/barcelona.html"
-			},
-			"My stuff": {
-				"capuno.cat"		: "https://capuno.cat/",
-				"gnu.cat"			: "https://gnu.cat/",
-				"life"				: "https://life.capuno.cat/",
-				"rice"				: "https://rice.capuno.cat/"
+			"test2": {
+				"link2"			: "https://www.duckduckgo.com"
 			}
 		};
 
@@ -79,6 +49,12 @@ var totallinks = 0;
 var prevregexp = "";
 
 // ---------- BUILD PAGE ----------
+document.addEventListener('DOMContentLoaded', function() {
+	matchLinks();
+	displayClock();
+	setInterval(displayClock, 60000);
+}, false);
+
 function matchLinks(regex = prevregexp) {
 	totallinks = 0;
 	pivotmatch = regex == prevregexp ? pivotmatch : 0;
@@ -140,7 +116,7 @@ document.onkeydown = function(e) {
 	}
 	document.getElementById("action").children[0].focus();
 }
-
+//it's returning an error here about children... i'm ignoring it for now
 document.getElementById("action").children[0].onkeypress = function(e) {
 	if (e.key == "ArrowDown" || e.key == "ArrowUp") {
 		return false;
@@ -149,12 +125,9 @@ document.getElementById("action").children[0].onkeypress = function(e) {
 
 function displayClock() {
 	now = new Date();
-	clock = (now.getHours() < 10 ? "0"+now.getHours() : now.getHours())+":"
-			+(now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes())+":"
-			+(now.getSeconds() < 10 ? "0"+now.getSeconds() : now.getSeconds());
+	clock =
+		(now.getHours() < 10 || (now.getHours() > 12 && now.getHours() < 22) ? "0" : "") + //adds leading 0
+		(now.getHours() > 12 ? now.getHours() - 12 : now.getHours()) + //adds 12-hour formatted hour
+		":"+(now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes()); // adds minutes with/without leading 0
 	document.getElementById("clock").innerHTML = clock;
 }
-
-window.onload = matchLinks();
-displayClock();
-setInterval(displayClock, 1000);

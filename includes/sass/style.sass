@@ -1,0 +1,79 @@
+@import colors
+//style todo:
+//make everything stretch based on window size
+//include universal variables for stretch
+
+
+body
+  font-family: $font-1
+  background-color: $bg0-hard
+  margin: 0
+  div.main
+    text-align: center
+    position: relative
+    transition: 1s transform
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    user-select: none
+    margin: auto
+    width: 80vw
+    div.static_links
+      background-color: $bg0-hard
+      margin: 2px 2px 0px 2px
+      box-sizing: border-box
+      color: $fg0
+      line-height: 30px
+      text-align: left
+      font-size: 16px
+      border: none
+      width: 100%
+      height: 30px
+      span#clock
+        display: inline-block
+    form
+      input
+        font-family: $font-1
+        background-color: $bg0
+        margin: 0px 2px 2px 2px
+        box-sizing: border-box
+        color: $fg0
+        padding-left: 5px
+        font-size: 40px
+        border: none
+        width: 100%
+        height: 50px
+      input:focus
+        outline: none
+div#links
+  font-family: $font-1
+  div.section
+    background-color: $bg0
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: top
+    text-align: left
+    height: 200px
+    width: 300px
+    margin: 2px
+    overflow: hidden
+    color: $bg3
+    div
+      padding: 15px
+      background-color: $bg0
+      height: 100%
+      a
+        text-decoration: none
+        color: $fg0
+        display: block
+      a:hover
+        background-color: $bg1
+        color: $light-green
+      a.selected
+        background-color: $bg1
+        color: $light-green
+      a + a
+        margin-top: 5px
+  div.section:before
+    content: ""
+    margin-left: 5px
