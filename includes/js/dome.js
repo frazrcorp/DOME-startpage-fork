@@ -32,15 +32,6 @@
 // ---------- CONFIGURATION ----------
 
 // div.innerHTML : {a.innerHTML : a.href}
-var sites = {
-			"test1": {
-				"link1"			: "https://www.google.com"
-			},
-			"test2": {
-				"link2"			: "https://www.duckduckgo.com"
-			}
-		};
-
 var search = "https://duckduckgo.com/";		// The search engine
 var query  = "q";							// The query variable name for the search engine
 
