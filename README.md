@@ -21,3 +21,9 @@ implemented features:
 - clock now does not display seconds, displays 12-hour 
 - some portions of the html stretch to fit.
 - sites are now located in their own file so adding/deleting bookmarks, as well as updating the website, is now easier.
+
+scratch:
+
+https://www.npmjs.com/package/linkifyjs#browser-support
+
+https://soapbox.github.io/linkifyjs/docs/
