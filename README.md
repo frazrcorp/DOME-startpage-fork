@@ -9,7 +9,7 @@ this is a fork of dome, for the following purposes:
 - make it prettier
 - make it format to different screen sizes
 - add certain widgets, like weather.
-- add ability to link to internal browser settings
+- add ability to link to internal browser settings << this isn't gonna work unless this project becomes an extention... debating if I should
 - add ability to link to local files
 - add fuzzy search results from the search engine of choice
 

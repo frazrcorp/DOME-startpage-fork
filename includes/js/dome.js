@@ -26,8 +26,8 @@
  */
 
 // "Thus, programs must be written for people to read, and only incidentally for machines to execute."
-// TODO: Commenting.
-
+// TODO: Commenting. <<lol
+// I might split up this js file into multiple js files
 
 // ---------- CONFIGURATION ----------
 
@@ -40,12 +40,14 @@ var totallinks = 0;
 var prevregexp = "";
 
 // ---------- BUILD PAGE ----------
+//js to run on load: clock, and div#link building
 document.addEventListener('DOMContentLoaded', function() {
 	matchLinks();
 	displayClock();
 	setInterval(displayClock, 60000);
 }, false);
-
+//this giant function matches your input string against your sites in 'sites.js'
+//I haven't edited this yet, so... I don't understand this code yet.
 function matchLinks(regex = prevregexp) {
 	totallinks = 0;
 	pivotmatch = regex == prevregexp ? pivotmatch : 0;
@@ -91,7 +93,7 @@ function matchLinks(regex = prevregexp) {
 	}
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight+"px";
 }
-
+//i think this function has to do with arrow keys... i think?
 document.onkeydown = function(e) {
 	switch (e.keyCode) {
 		case 38:
@@ -107,13 +109,14 @@ document.onkeydown = function(e) {
 	}
 	document.getElementById("action").children[0].focus();
 }
+//this function also has to do with arrow keys
 //it's returning an error here about children... i'm ignoring it for now
 document.getElementById("action").children[0].onkeypress = function(e) {
 	if (e.key == "ArrowDown" || e.key == "ArrowUp") {
 		return false;
 	}
 }
-
+//clock function
 function displayClock() {
 	now = new Date();
 	clock =
@@ -122,3 +125,10 @@ function displayClock() {
 		":"+(now.getMinutes() < 10 ? "0"+now.getMinutes() : now.getMinutes()); // adds minutes with/without leading 0
 	document.getElementById("clock").innerHTML = clock;
 }
+//----------------------search suggestions js
+//send duckduckgo.com/ac/?q=QUERY
+//it returns ac.json
+//inside json is array of objects, with 'phrase' object
+//each 'phrase' is an autocomplete result
+//it returns 10 phrases
+//I should probably try to make each phrase selectable both through arrow keys and cursor, like the links div
