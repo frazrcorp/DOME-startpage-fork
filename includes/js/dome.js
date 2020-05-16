@@ -94,6 +94,8 @@ function matchLinks(regex = prevregexp) {
 	document.getElementById("main").style.height = document.getElementById("main").children[0].offsetHeight+"px";
 }
 //i think this function has to do with arrow keys... i think?
+//i plan on changing this to the following:
+// left/right goes between folders, up/down goes between links in folders
 document.onkeydown = function(e) {
 	switch (e.keyCode) {
 		case 38:
