@@ -24,11 +24,17 @@
  * for the JavaScript code in this page.
  *
  */
+/*
+"Thus, programs must be written for people to read, and only incidentally for machines to execute."
+TODO:
+Commenting. <<lol
 
-// "Thus, programs must be written for people to read, and only incidentally for machines to execute."
-// TODO: Commenting. <<lol
+NOTES:
+I think "action".action is the html you want to go to, and so it is modified as your input changes... there is no js
+that runs when the enter key is pressed, at least not that I'm aware. however this might be changeable.
+
 // I might split up this js file into multiple js files
-
+*/
 // ---------- CONFIGURATION ----------
 
 // div.innerHTML : {a.innerHTML : a.href}
@@ -134,3 +140,9 @@ function displayClock() {
 //each 'phrase' is an autocomplete result
 //it returns 10 phrases
 //I should probably try to make each phrase selectable both through arrow keys and cursor, like the links div
+
+//----------------------linkify js
+//send linkify.find(string)
+//returns an array
+//run on enter, if linkify returns an array, goto the url specified
+
